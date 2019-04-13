@@ -1,0 +1,11 @@
+name: BucketsPlus
+version: 0.0.1-BETA
+main: dev.neur.bp.BucketsPlus
+api-version: 1.13
+authors: [Nuer]
+description: An extremely optimised gen bucket plugin.
+website: https://nuer.dev
+commands:
+  bp:
+    usage: /<command>
+    description: main command
