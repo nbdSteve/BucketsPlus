@@ -9,8 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
-
 public class PlayerInteractListener implements Listener {
 
     @EventHandler
@@ -27,13 +25,10 @@ public class PlayerInteractListener implements Listener {
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
         //Verify that the player is placing a gen bucket
         if (!nbtItem.hasNBTData() || !nbtItem.getBoolean("bucket-plus")) return;
-        //Store information about the bukkit
+        //Store information about the bucket
         int numberOfBlocksToGenerate = nbtItem.getInteger("number-of-blocks-to-generate");
         long delayBetweenBlockGeneration = nbtItem.getLong("delay-between-block-generation");
         String generationType = nbtItem.getString("generation-type");
-        System.out.println(generationType);
-        System.out.println(delayBetweenBlockGeneration);
-        System.out.println(numberOfBlocksToGenerate);
         //Call the gen bucket event
         Bukkit.getServer().getPluginManager().callEvent(new GenBucketUseEvent(player, event.getClickedBlock(),
                 event.getBlockFace(), numberOfBlocksToGenerate, delayBetweenBlockGeneration, generationType));

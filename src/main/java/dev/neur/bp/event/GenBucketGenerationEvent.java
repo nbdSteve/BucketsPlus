@@ -4,10 +4,11 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
+import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-public class GenBucketGenerationEvent extends BlockPlaceEvent implements Cancellable {
+public class GenBucketGenerationEvent extends Event implements Cancellable {
 
     private static final HandlerList handlers = new HandlerList();
 
@@ -17,7 +18,6 @@ public class GenBucketGenerationEvent extends BlockPlaceEvent implements Cancell
     private boolean cancel;
 
     public GenBucketGenerationEvent(Player bucketOwner, Block blockToChange, Material blockTypeToGenerate) {
-        super(blockToChange, null, null, null, bucketOwner, false);
         this.bucketOwner = bucketOwner;
         this.blockToChange = blockToChange;
         this.blockTypeToGenerate = blockTypeToGenerate;

@@ -13,4 +13,10 @@ public class NBTHelper {
         nbtItem.setLong("delay-between-block-generation", 5L);
         return nbtItem.getItem();
     }
+
+    public static ItemStack addWandData(ItemStack item) {
+        NBTItem nbtItem = new NBTItem(item);
+        nbtItem.setBoolean("bucket-plus-wand", true);
+        return nbtItem.getItem();
+    }
 }

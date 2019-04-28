@@ -1,0 +1,33 @@
+# Buckets+
+enable-debug: true
+
+buckets-gui:
+  size: 9
+  name: "&6&lBuy Buckets"
+  1:
+    slot: 0
+    name: "&bVertical Buckets"
+    material: bucket:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy vertical gen buckets."
+      - "&7 "
+    enchantments:
+      - lure:10
+    open-vertical: true
+  2:
+    slot: 1
+    name: "&bHorizontal Buckets"
+    material: bucket:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy horizontal gen buckets."
+      - "&7 "
+    enchantments:
+      - lure:10
+    open-horizontal: true
+  3:
+    slot: 8
+    name: "&c&lExit"
+    material: barrier:0
+    exit-gui: true

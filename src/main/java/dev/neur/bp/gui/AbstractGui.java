@@ -18,7 +18,6 @@ public abstract class AbstractGui {
     //Store the map of inventories that are open for players, static so it can be accessed and modified
     // outside the class
     public static HashMap<UUID, UUID> openInventories = new HashMap<>();
-
     //Store the id of the inventory
     private UUID inventoryID;
     //Store the inventory being created

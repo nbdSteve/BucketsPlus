@@ -6,6 +6,7 @@ authors: [Nuer]
 description: An extremely optimised gen bucket plugin.
 website: https://nuer.dev
 commands:
-  bp:
+  gen:
     usage: /<command>
     description: main command
+    aliases: [bucketsplus, genbucket, genbuckets]

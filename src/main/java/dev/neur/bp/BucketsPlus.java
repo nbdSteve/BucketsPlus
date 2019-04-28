@@ -1,9 +1,11 @@
 package dev.neur.bp;
 
-import dev.neur.bp.cmd.BpCmd;
+import dev.neur.bp.cmd.GenCmd;
 import dev.neur.bp.event.callcustomevents.PlayerInteractListener;
 import dev.neur.bp.file.LoadFiles;
+import dev.neur.bp.listener.BlockGenerationByGenBucket;
 import dev.neur.bp.listener.GenBucketUsed;
+import dev.neur.bp.wand.GiveWandEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.text.DecimalFormat;
@@ -11,7 +13,7 @@ import java.util.logging.Logger;
 
 public final class BucketsPlus extends JavaPlugin {
     //Store the plugin files
-    private static LoadFiles files;
+    public static LoadFiles files;
     //Create a logger for the plugin
     public static Logger LOGGER = Logger.getLogger(BucketsPlus.class.getName());
     //Store the servers economy
@@ -23,9 +25,14 @@ public final class BucketsPlus extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getCommand("bp").setExecutor(new BpCmd());
+        //Load the plugin files
+        files = new LoadFiles();
+        debugMode = files.get("config").getBoolean("enable-debug");
+        getCommand("gen").setExecutor(new GenCmd());
         getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
         getServer().getPluginManager().registerEvents(new GenBucketUsed(), this);
+        getServer().getPluginManager().registerEvents(new BlockGenerationByGenBucket(), this);
+        getServer().getPluginManager().registerEvents(new GiveWandEvent(), this);
     }
 
     @Override
