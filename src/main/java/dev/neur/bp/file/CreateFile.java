@@ -83,4 +83,12 @@ public class CreateFile {
     public FileConfiguration get() {
         return yamlFile;
     }
+
+    public void save() {
+        try {
+            yamlFile.save(file);
+        } catch (IOException e) {
+            BucketsPlus.LOGGER.severe("ERROR");
+        }
+    }
 }
